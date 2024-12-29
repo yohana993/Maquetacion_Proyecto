@@ -23,6 +23,7 @@ h1, h2 {
 h3 {
     color: whitesmoke;
     text-align: center;
+    font-size: 28px;
 }
 
 .bienvenute {
@@ -79,6 +80,7 @@ label {
     margin-bottom: 5px;
     color: white;
     text-align: center;
+    font-size: 20px;
 }
 
 input {
@@ -87,6 +89,10 @@ input {
     border-radius: 5px;
     border: 1px solid #ddd;
     font-size: 14px;
+}
+
+.hidden {
+    display: none; /* Clase para ocultar elementos */
 }
 
 button {
@@ -194,10 +200,7 @@ footer {
 .form-group:last-child {
     padding-right: 0; /* Sin espacio a la derecha en la última columna */
 }
-label {
-    display: block;
-    margin-bottom: 5px;
-}
+
 input, select {
     width: 100%;
     padding: 8px;

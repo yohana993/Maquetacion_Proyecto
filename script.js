@@ -25,7 +25,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 });
 
 // Productos
-const precioCompraInput = document.getElementById('precioCompra');
+    const precioCompraInput = document.getElementById('precioCompra');
     const precioVentaInput = document.getElementById('precioVenta');
     const gananciaInput = document.getElementById('ganancia');
 
@@ -38,3 +38,23 @@ const precioCompraInput = document.getElementById('precioCompra');
 
     precioCompraInput.addEventListener('input', calcularGanancia);
     precioVentaInput.addEventListener('input', calcularGanancia);
+
+    const procesoSelect = document.getElementById('proceso');
+    const precioCompraContainer = document.getElementById('precioCompraContainer');
+    const gananciaContainer = document.getElementById('gananciaContainer');
+
+    function toggleFields() {
+        if (procesoSelect.value === 'ingreso') {
+            precioCompraContainer.classList.remove('hidden');
+            gananciaContainer.classList.remove('hidden');
+        } else {
+            precioCompraContainer.classList.add('hidden');
+            gananciaContainer.classList.add('hidden');
+        }
+    }
+
+    // Llama a la función al cargar la página para establecer el estado inicial
+    toggleFields();
+
+    // Agrega un evento para cambiar la visibilidad al seleccionar un nuevo valor
+    procesoSelect.addEventListener('change', toggleFields);
