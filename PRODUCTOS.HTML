@@ -22,10 +22,9 @@
         </div>
     </div>
 </header>
-
 <main>
     <h3>Formulario de Productos</h3>
-    <form action="#" method="POST">
+    <form action="procesar.php" method="POST" onsubmit="return confirmarProceso();">
         <div class="form-container">
             <div class="form-group">
                 <label for="proceso">Proceso</label>
@@ -46,9 +45,9 @@
                 <label for="cantidad">Cantidad</label>
                 <input type="number" id="cantidad" name="cantidad" required>
             </div>
-            <div class="form-group">
+            <div class="form-group hidden" id="precioCompraContainer">
                 <label for="precioCompra">Precio de Compra</label>
-                <input type="number" id="precioCompra" name="precioCompra" step="0.01" required>
+                <input type="number" id="precioCompra" name="precioCompra" step="0.01">
             </div>
             <div class="form-group">
                 <label for="precioVenta">Precio de Venta</label>
@@ -58,9 +57,10 @@
         <button type="submit">Confirmar</button>
     </form>
 </main>
-
 <footer>
     <p>&copy; 2014 Cafe Bar, Todos los derechos reservados.</p>
 </footer>
+
+<script src="script.js"></script>
 </body>
 </html>

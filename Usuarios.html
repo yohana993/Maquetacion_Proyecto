@@ -3,39 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios</title>
+    <title>Registro de Usuarios</title>
     <link rel="stylesheet" href="Style.css">
-
 </head>
-
 <body>
 <header>
-
-<div >
-
-    <div class="menu container">
-        <label for="menu">
-            <img src="imagenes/img.png" class="menu-icono" alt="">
-        </label>
-        <nav>
-            <ul>
-                <li><a href="Menu.HTML">INICIO</a></li>
-                <li><a href="Usuarios.HTML">USUARIOS</a></li>
-              </ul>
-
-        </nav>
-
+    <div>
+        <div class="menu container">
+            <label for="menu">
+                <img src="imagenes/img.png" class="menu-icono" alt="">
+            </label>
+            <nav>
+                <ul>
+                    <li><a href="Menu.HTML">INICIO</a></li>
+                    <li><a href="Usuarios.HTML">USUARIOS</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
-
-</div>
-
 </header>
-
-
-</body>
-
+<main>
+    <h3>Formulario de Registro de Usuarios</h3>
+    <form action="procesar_usuario.php" method="POST" onsubmit="return confirmarRegistro();">
+        <div class="form-container">
+            <div class="form-group">
+                <label for="nombres">Nombres</label>
+                <input type="text" id="nombres" name="nombres" required>
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+            </div>
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input type="text" id="id" name="id" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|hotmail\.com|outlook\.com|yahoo\.com)$" title="Por favor, ingrese un correo electrónico válido (gmail.com, hotmail.com, outlook.com, yahoo.com)">
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Rol</label>
+                <select id="role" name="role" required>
+                    <option value="admin">Admin</option>
+                    <option value="usuario">Usuario</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit">Crear</button>
+    </form>
+</main>
 <footer>
-  <p>&copy; 2014 Cafe Bar, Todos los derechos reservados.</p>
+    <p>&copy; 2014 Cafe Bar, Todos los derechos reservados.</p>
 </footer>
 
+<script src="script.js"></script>
+</body>
 </html>

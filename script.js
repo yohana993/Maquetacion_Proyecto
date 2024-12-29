@@ -25,36 +25,43 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 });
 
 // Productos
-    const precioCompraInput = document.getElementById('precioCompra');
-    const precioVentaInput = document.getElementById('precioVenta');
-    const gananciaInput = document.getElementById('ganancia');
+const precioCompraInput = document.getElementById('precioCompra');
+const precioVentaInput = document.getElementById('precioVenta');
+const gananciaInput = document.getElementById('ganancia');
 
-    function calcularGanancia() {
-        const precioCompra = parseFloat(precioCompraInput.value) || 0;
-        const precioVenta = parseFloat(precioVentaInput.value) || 0;
-        const ganancia = precioVenta - precioCompra;
-        gananciaInput.value = ganancia.toFixed(2); // Redondear a 2 decimales
+function calcularGanancia() {
+    const precioCompra = parseFloat(precioCompraInput.value) || 0;
+    const precioVenta = parseFloat(precioVentaInput.value) || 0;
+    const ganancia = precioVenta - precioCompra;
+    gananciaInput.value = ganancia.toFixed(2); // Redondear a 2 decimales
+}
+
+precioCompraInput.addEventListener('input', calcularGanancia);
+precioVentaInput.addEventListener('input', calcularGanancia);
+
+const procesoSelect = document.getElementById('proceso');
+const precioCompraContainer = document.getElementById('precioCompraContainer');
+
+function toggleFields() {
+    if (procesoSelect.value === 'ingreso') {
+        precioCompraContainer.classList.remove('hidden');
+    } else {
+        precioCompraContainer.classList.add('hidden');
     }
+}
 
-    precioCompraInput.addEventListener('input', calcularGanancia);
-    precioVentaInput.addEventListener('input', calcularGanancia);
+// Llama a la función al cargar la página para establecer el estado inicial
+toggleFields();
 
-    const procesoSelect = document.getElementById('proceso');
-    const precioCompraContainer = document.getElementById('precioCompraContainer');
-    const gananciaContainer = document.getElementById('gananciaContainer');
+// Agrega un evento para cambiar la visibilidad al seleccionar un nuevo valor
+procesoSelect.addEventListener('change', toggleFields);
 
-    function toggleFields() {
-        if (procesoSelect.value === 'ingreso') {
-            precioCompraContainer.classList.remove('hidden');
-            gananciaContainer.classList.remove('hidden');
-        } else {
-            precioCompraContainer.classList.add('hidden');
-            gananciaContainer.classList.add('hidden');
-        }
-    }
+function confirmarProceso() {
+    alert("El proceso se ha confirmado de manera adecuada.");
+    return true; // Permite que el formulario se envíe
+}
 
-    // Llama a la función al cargar la página para establecer el estado inicial
-    toggleFields();
-
-    // Agrega un evento para cambiar la visibilidad al seleccionar un nuevo valor
-    procesoSelect.addEventListener('change', toggleFields);
+function confirmarRegistro() {
+    alert("El registro se ha confirmado de manera adecuada.");
+    return true; // Permite que el formulario se envíe
+}
