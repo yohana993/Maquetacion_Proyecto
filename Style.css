@@ -20,6 +20,10 @@ body {
 h1, h2 {
     color: #333;
 }
+h3 {
+    color: whitesmoke;
+    text-align: center;
+}
 
 .bienvenute {
     color: white;
@@ -73,6 +77,8 @@ label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    color: white;
+    text-align: center;
 }
 
 input {
@@ -164,6 +170,43 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 600px; /* Ajusta el ancho según sea necesario */
+    margin: auto;
+    border: 1px solid #ccc; /* Borde alrededor del contenedor */
+    padding: 20px; /* Espacio interno */
+    border-radius: 8px; /* Bordes redondeados */
+}
+.form-group {
+    flex: 1 1 45%; /* Dos columnas */
+    margin-bottom: 15px;
+    position: relative; /* Para posicionar la división */
+}
+.form-group:not(:last-child) {
+    border-right: 1px solid #ccc; /* Línea divisoria entre columnas */
+    padding-right: 15px; /* Espacio a la derecha */
+}
+.form-group:last-child {
+    padding-right: 0; /* Sin espacio a la derecha en la última columna */
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input, select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box; /* Para incluir padding en el ancho total */
+}
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
 }
 
 /* Media query para dispositivos móviles */

@@ -23,3 +23,18 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         document.getElementById('mensajeError').style.display = 'block'; // Mostrar mensaje de error
     }
 });
+
+// Productos
+const precioCompraInput = document.getElementById('precioCompra');
+    const precioVentaInput = document.getElementById('precioVenta');
+    const gananciaInput = document.getElementById('ganancia');
+
+    function calcularGanancia() {
+        const precioCompra = parseFloat(precioCompraInput.value) || 0;
+        const precioVenta = parseFloat(precioVentaInput.value) || 0;
+        const ganancia = precioVenta - precioCompra;
+        gananciaInput.value = ganancia.toFixed(2); // Redondear a 2 decimales
+    }
+
+    precioCompraInput.addEventListener('input', calcularGanancia);
+    precioVentaInput.addEventListener('input', calcularGanancia);
