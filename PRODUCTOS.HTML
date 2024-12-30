@@ -35,15 +35,15 @@
             </div>
             <div class="form-group">
                 <label for="categoria">Categoría</label>
-                <input type="text" id="categoria" name="categoria" required>
+                <input type="text" id="categoria" name="categoria" required pattern="^[a-zA-Z]+$" title="En la categoria solo debe contener letras.">
             </div>
             <div class="form-group">
                 <label for="producto">Producto</label>
-                <input type="text" id="producto" name="producto" required>
+                <input type="text" id="producto" name="producto" required pattern="^[a-zA-Z]+$" title="En el producto solo debe contener letras.">
             </div>
             <div class="form-group">
                 <label for="cantidad">Cantidad</label>
-                <input type="number" id="cantidad" name="cantidad" required>
+                <input type="number" id="cantidad" name="cantidad" required pattern="^\d+$" title="En la cantidad solo debe contener números.">
             </div>
             <div class="form-group hidden" id="precioCompraContainer">
                 <label for="precioCompra">Precio de Compra</label>
@@ -51,7 +51,7 @@
             </div>
             <div class="form-group">
                 <label for="precioVenta">Precio de Venta</label>
-                <input type="number" id="precioVenta" name="precioVenta" step="0.01" required>
+                <input type="number" id="precioVenta" name="precioVenta" step="0.01" required pattern="^\d+$" title="En precio de venta solo debe contener números.">
             </div>
         </div>
         <button type="submit">Confirmar</button>

@@ -28,23 +28,23 @@
         <div class="form-container">
             <div class="form-group">
                 <label for="nombres">Nombres</label>
-                <input type="text" id="nombres" name="nombres" required>
+                <input type="text" id="nombres" name="nombres" required pattern="^[a-zA-Z]+$" title="En nombres solo debe contener letras.">
             </div>
             <div class="form-group">
                 <label for="apellidos">Apellidos</label>
-                <input type="text" id="apellidos" name="apellidos" required>
+                <input type="text" id="apellidos" name="apellidos" required pattern="^[a-zA-Z]+$" title="En apellidos solo debe contener letras.">
             </div>
             <div class="form-group">
                 <label for="id">ID</label>
-                <input type="text" id="id" name="id" required>
+                <input type="text" id="id" name="id" required pattern="^\d{8,10}$" title="El ID debe tener entre 8 y 10 dígitos. Solo se permiten números.">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|hotmail\.com|outlook\.com|yahoo\.com)$" title="Por favor, ingrese un correo electrónico válido (gmail.com, hotmail.com, outlook.com, yahoo.com)">
+                <input type="email" id="email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|hotmail\.com|outlook\.com|yahoo\.com)$" title="Por favor, ingrese un correo electrónico válido (gmail.com, hotmail.com, outlook.com, yahoo.com)">
             </div>
             <div class="form-group">
                 <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" required>
+                <input type="tel" id="telefono" name="telefono" required pattern="^\d{7,10}$" title="El teléfono debe tener entre 7 y 10 dígitos. Solo se permiten números.">
             </div>
             <div class="form-group">
                 <label for="role">Rol</label>

@@ -1,3 +1,4 @@
+
 <?php
 // Conexión a la base de datos
 $host = 'localhost'; // Cambia esto si tu base de datos está en otro host
