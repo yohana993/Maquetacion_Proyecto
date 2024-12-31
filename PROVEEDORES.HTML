@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Proveedores</title>
+    <link rel="stylesheet" href="Style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            background-color: #4fc3f7; /* Azul claro */
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu .navbar ul li a:hover {
+            background-color: #29b6f6; /* Azul claro más oscuro */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #4fc3f7; /* Azul claro */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin: 10px 5px;
+        }
+
+        .button:hover {
+            background-color: #29b6f6; /* Azul claro más oscuro */
+        }
+
+        .table-container {
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4fc3f7; /* Azul claro */
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div>
+        <div class="menu container">
+            <img src="images/Logo.png" class="logo" alt="">
+            <a href="MENU.HTML" class="logo"></a>
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="imagenes/img.png" class="menu-icono" alt="Menú">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="MENU.HTML">INICIO</a></li>
+                    <li><a href="PROVEEDORES.HTML" class="active">PROVEEDORES</a></li>
+                    <li><a href="PRODUCTOS.HTML">PRODUCTOS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <h3 class="center-align">Gestión de Proveedores</h3>
+    <div>
+        <a href="#" class="button">Añadir Proveedor</a>
+        <a href="#" class="button">Actualizar Proveedor</a>
+        <a href="#" class="button">Eliminar Proveedor</a>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Contacto</th>
+                    <th>Email</th>
+                    <th>Dirección</th>
+                    <th>Productos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Proveedor 1</td>
+                    <td>123-456-789</td>
+                    <td>email1@proveedores.com</td>
+                    <td>Calle Falsa 123</td>
+                    <td>Café, Té</td>
+                </tr>
+                <tr>
+                    <td>Proveedor 2</td>
+                    <td>987-654-321</td>
+                    <td>email2@proveedores.com</td>
+                    <td>Avenida Siempreviva 456</td>
+                    <td>Leche, Azúcar</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">El mejor servicio de la ciudad está aquí</h5>
+                <p class="white-text text-lighten-4">Ven y conoce nuestros productos.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Enlaces</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Contáctanos</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Acerca de</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2024 CafeBar
+            <a class="grey-text text-lighten-4 right" href="#!">Califícanos</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
