@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Proveedores</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+<header>
+<div>
+    <div class="menu container">
+        <label for="menu">
+            <img src="imagenes/img.png" class="menu-icono" alt="">
+        </label>
+        <nav>
+            <ul>
+                <li><a href="Menu.HTML">INICIO</a></li>
+                <li><a href="Usuarios.HTML">USUARIOS</a></li>
+                <li><a href="Productos.HTML">PRODUCTOS</a></li>
+                <li><a href="Proveedores.HTML">PROVEEDORES</a></li>
+              </ul>
+
+        </nav>
+    </div>
+</div>
+</header>
+<main class="container1">
+    <h3 class="center-align1">Gestión de Proveedores</h3>
+
+    <!-- Tabla de Proveedores -->
+    <div class="table-container1" id="providerTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Contacto</th>
+                    <th>Email</th>
+                    <th>Dirección</th>
+                    <th>Productos</th>
+                    <th>NIT</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="providerList">
+                <tr>
+                    <td>Proveedor 1</td>
+                    <td>123-456-789</td>
+                    <td>email1@proveedores.com</td>
+                    <td>Calle Falsa 123</td>
+                    <td>Café, Té</td>
+                    <td>123456789</td>
+                    <td><button class="deleteBtn">Eliminar</button></td>
+                </tr>
+                <tr>
+                    <td>Proveedor 2</td>
+                    <td>987-654-321</td>
+                    <td>email2@proveedores.com</td>
+                    <td>Avenida Siempreviva 456</td>
+                    <td>Leche, Azúcar</td>
+                    <td>987654321</td>
+                    <td><button class="deleteBtn">Eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Formulario para Actualizar Proveedor -->
+    <div id="updateProviderForm" style="display:none;">
+        <h4>Actualizar Proveedor</h4>
+        <form id="formUpdate">
+            <label>Nombre:</label><input type="text" id="updateName" required>
+            <label>Contacto:</label><input type="text" id="updateContact" required>
+            <label>Email:</label><input type="email" id="updateEmail" required>
+            <label>Dirección:</label><input type="text" id="updateAddress" required>
+            <label>Productos:</label><input type="text" id="updateProducts" required>
+            <label>NIT:</label><input type="text" id="updateNIT" required>
+            <button type="submit">Actualizar</button>
+            <button type="button" id="cancelUpdate">Cancelar</button>
+        </form>
+    </div>
+
+    <div class="contenedor2">
+        <a href="Proveedores.html" class="button1" id="addButton">Atras</a>
+    </div>
+</main>
+
+<footer>
+  <p>&copy; 2014 Cafe Bar, Todos los derechos reservados.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

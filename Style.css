@@ -212,6 +212,62 @@ button {
     margin-top: 10px;
 }
 
+/*Proveedores*/
+.button1 {
+    display: inline-block;
+    background-color: #325f5b; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin: 10px 5px;
+    
+}
+.button1:hover {
+    background-color: #29b6f6; 
+}
+.contenedor2 {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    margin: 20px 0; /* Espaciado vertical (ajusta según sea necesario) */
+}
+.table-container1 {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #325f5b; /* Azul claro */
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+.container1 {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    /*background-color: #ffffff;*/
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* Media query para dispositivos móviles */
 @media (max-width: 768px) {
     .hero {
