@@ -50,20 +50,7 @@ function toggleFields() {
 
 // Llama a la función al cargar la página para establecer el estado inicial
 toggleFields();
-
-// Agrega un evento para cambiar la visibilidad al seleccionar un nuevo valor
 procesoSelect.addEventListener('change', toggleFields);
-
-// Confirmaciones
-function confirmarProceso() {
-    alert("El proceso se ha confirmado de manera adecuada.");
-    return true; // Permite que el formulario se envíe
-}
-
-function confirmarRegistro() {
-    alert("El registro se ha confirmado de manera adecuada.");
-    return true; // Permite que el formulario se envíe
-}
 
 // Proveedores
 document.addEventListener("DOMContentLoaded", function () {
@@ -73,17 +60,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const addProviderForm = document.getElementById('addProviderForm');
     const updateProviderForm = document.getElementById('updateProviderForm');
     const deleteProviderList = document.getElementById('deleteProviderList');
-    const providerTable = document.getElementById('providerTable');
+    const providerTableBody = document.getElementById('providerList');
+    let providers = []; // Array para almacenar proveedores
 
     // Al cargar la página, solo mostramos la tabla de proveedores y los botones de añadir y actualizar
-    providerTable.style.display = 'block';
     addProviderForm.style.display = 'none';
     updateProviderForm.style.display = 'none';
     deleteProviderList.style.display = 'none';
 
     addButton.addEventListener('click', function (e) {
         e.preventDefault();
-        providerTable.style.display = 'none';
         addProviderForm.style.display = 'block';
         updateProviderForm.style.display = 'none';
         deleteProviderList.style.display = 'none';
@@ -91,7 +77,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateButton.addEventListener('click', function (e) {
         e.preventDefault();
-        providerTable.style.display = 'none';
         addProviderForm.style.display = 'none';
         updateProviderForm.style.display = 'block';
         deleteProviderList.style.display = 'none';
@@ -99,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     deleteButton.addEventListener('click', function (e) {
         e.preventDefault();
-        providerTable.style.display = 'none';
         addProviderForm.style.display = 'none';
         updateProviderForm.style.display = 'none';
         deleteProviderList.style.display = 'block';
@@ -107,45 +91,109 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById('cancelAdd').addEventListener('click', function () {
         addProviderForm.style.display = 'none';
-        providerTable.style.display = 'block';
     });
 
     document.getElementById('cancelUpdate').addEventListener('click', function () {
         updateProviderForm.style.display = 'none';
-        providerTable.style.display = 'block';
     });
 
     document.getElementById('cancelDelete').addEventListener('click', function () {
         deleteProviderList.style.display = 'none';
-        providerTable.style.display = 'block';
     });
 
     // Lógica para añadir proveedores
     document.getElementById('formAdd').addEventListener('submit', function (e) {
         e.preventDefault();
-        // Aquí puedes añadir la lógica para agregar el proveedor a la tabla
-        alert('Proveedor añadido.'); // Solo para demostración
-        addProviderForm.style.display = 'none';
-        providerTable.style.display = 'block';
+        
+        const formData = new FormData(this); // Crear FormData para enviar los datos
+
+        fetch('add_provider.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message); // Mostrar mensaje de éxito o error
+            if (data.success) {
+                addProviderForm.reset(); // Reiniciar el formulario
+                updateProviderTable(); // Actualizar la tabla de proveedores
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Ocurrió un error al añadir el proveedor.');
+        });
     });
 
     // Lógica para actualizar proveedores
     document.getElementById('formUpdate').addEventListener('submit', function (e) {
         e.preventDefault();
-        // Aquí puedes añadir la lógica para actualizar el proveedor seleccionado
-        alert('Proveedor actualizado.'); // Solo para demostración
-        updateProviderForm.style.display = 'none';
-        providerTable.style.display = 'block';
+
+        const formData = new FormData(this); // Crear FormData para enviar los datos
+
+        fetch('update_provider.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message); // Mostrar mensaje de éxito o error
+            if (data.success) {
+                updateProviderForm.reset(); // Reiniciar el formulario
+                updateProviderTable(); // Actualizar la tabla de proveedores
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Ocurrió un error al actualizar el proveedor.');
+        });
     });
 
     // Lógica para eliminar proveedores
-    document.querySelectorAll('.deleteBtn').forEach(button => {
-        button.addEventListener('click', function () {
+    document.getElementById('deleteProviderList').addEventListener('click', function (e) {
+        if (e.target.classList.contains('deleteBtn')) {
+            const id = e.target.dataset.id; // Suponiendo que tienes un atributo data-id
             if (confirm('¿Estás seguro de que deseas eliminar este proveedor?')) {
-                // Aquí puedes añadir la lógica para eliminar el proveedor de la tabla
-                alert('Proveedor eliminado.'); // Solo para demostración
+                fetch('eliminar_proveedores.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({ id: id }) // Enviar el ID del proveedor
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message); // Mostrar mensaje de éxito o error
+                    if (data.success) {
+                        updateProviderTable(); // Actualizar la tabla de proveedores
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Ocurrió un error al eliminar el proveedor.');
+                });
             }
-        });
+        }
     });
+
+    function updateProviderTable() {
+        providerTableBody.innerHTML = ''; // Limpiar la tabla
+        providers.forEach((provider, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${provider.nombre}</td>
+                <td>${provider.contacto}</td>
+                <td>${provider.email}</td>
+                <td>${provider.direccion}</td>
+                <td>${provider.productos}</td>
+                <td>${provider.nit}</td>
+                <td>
+                    <button class="updateBtn" data-id="${provider.id}">Actualizar</button>
+                    <button class="deleteBtn" data-id="${provider.id}">Eliminar</button>
+                </td>
+            `;
+            providerTableBody.appendChild(row);
+        });
+    }
 });
 
