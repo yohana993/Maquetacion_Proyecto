@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost"; // Cambia esto según tu configuración
-$username = "tu_usuario"; // Cambia esto por tu usuario de MySQL
-$password = "tu_contraseña"; // Cambia esto por tu contraseña de MySQL
-$dbname = "tu_base_de_datos"; // Cambia esto por el nombre de tu base de datos
+$servername = "localhost:3306"; 
+$username = "root"; 
+$password = "root"; 
+$dbname = "Cafe_Bar";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
