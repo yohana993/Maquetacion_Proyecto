@@ -1,11 +1,12 @@
 
 <?php
-// Conexión a la base de datos
-$host = 'localhost'; // Cambia esto si tu base de datos está en otro host
-$db = 'nombre_de_tu_base_de_datos'; // Cambia esto por el nombre de tu base de datos
-$user = 'tu_usuario'; // Cambia esto por tu usuario de base de datos
-$pass = 'tu_contraseña'; // Cambia esto por tu contraseña de base de datos
+session_start(); // Iniciar sesión para usar mensajes
 
+// Conexión a la base de datos
+$host = 'localhost:3306';
+$db = 'Cafe_Bar';
+$user = 'root';
+$pass = 'root';
 $conn = new mysqli($host, $user, $pass, $db);
 
 // Verificar conexión
@@ -13,13 +14,13 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Obtener datos del formulario
+// Obtener datos del formulario y sanitizar
 $proceso = $_POST['proceso'];
-$categoria = $_POST['categoria'];
-$producto = $_POST['producto'];
-$cantidad = $_POST['cantidad'];
-$precioCompra = isset($_POST['precioCompra']) ? $_POST['precioCompra'] : null; // Puede ser nulo si es salida
-$precioVenta = $_POST['precioVenta'];
+$categoria = $conn->real_escape_string($_POST['categoria']);
+$producto = $conn->real_escape_string($_POST['producto']);
+$cantidad = (int)$_POST['cantidad'];
+$precioCompra = isset($_POST['precioCompra']) ? (float)$_POST['precioCompra'] : null; 
+$precioVenta = (float)$_POST['precioVenta'];
 
 // Preparar la consulta SQL
 if ($proceso == 'ingreso') {
@@ -30,11 +31,15 @@ if ($proceso == 'ingreso') {
 
 // Ejecutar la consulta
 if ($conn->query($sql) === TRUE) {
-    echo "Registro creado exitosamente";
+    $_SESSION['mensaje'] = "Registro creado exitosamente";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    $_SESSION['mensaje'] = "Error: " . $conn->error;
 }
 
 // Cerrar conexión
 $conn->close();
+
+// Redirigir a la página de éxito
+header("Location: success.php");
+exit();
 ?>
