@@ -6,15 +6,12 @@ document.getElementById('btnIngresar').addEventListener('click', function () {
 
 document.getElementById('loginForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Evitar el envío del formulario
-    // Datos de inicio de sesión específicos
     const usuarioValido = "alegria@alegria.com";
     const contrasenaValida = "12345"; // Cambia esto a la contraseña que desees
-    // Obtener los valores ingresados
     const usuarioIngresado = document.getElementById('username').value;
     const contrasenaIngresada = document.getElementById('password').value;
-    // Validar las credenciales
+
     if (usuarioIngresado === usuarioValido && contrasenaIngresada === contrasenaValida) {
-        // Redirigir a Menu.html
         window.location.href = "Menu.html";
     } else {
         document.getElementById('mensajeError').innerText = "Usuario o contraseña incorrectos";
@@ -48,7 +45,6 @@ function toggleFields() {
     }
 }
 
-// Llama a la función al cargar la página para establecer el estado inicial
 toggleFields();
 procesoSelect.addEventListener('change', toggleFields);
 
@@ -63,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const providerTableBody = document.getElementById('providerList');
     let providers = []; // Array para almacenar proveedores
 
-    // Al cargar la página, solo mostramos la tabla de proveedores y los botones de añadir y actualizar
     addProviderForm.style.display = 'none';
     updateProviderForm.style.display = 'none';
     deleteProviderList.style.display = 'none';
@@ -104,9 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Lógica para añadir proveedores
     document.getElementById('formAdd').addEventListener('submit', function (e) {
         e.preventDefault();
-        
         const formData = new FormData(this); // Crear FormData para enviar los datos
-
         fetch('add_provider.php', {
             method: 'POST',
             body: formData
@@ -128,9 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Lógica para actualizar proveedores
     document.getElementById('formUpdate').addEventListener('submit', function (e) {
         e.preventDefault();
-
         const formData = new FormData(this); // Crear FormData para enviar los datos
-
         fetch('update_provider.php', {
             method: 'POST',
             body: formData
@@ -195,5 +186,20 @@ document.addEventListener("DOMContentLoaded", function () {
             providerTableBody.appendChild(row);
         });
     }
-});
 
+    // Función para cargar los proveedores (puedes llamarla al cargar la página)
+    function loadProviders() {
+        fetch('get_providers.php') // Asegúrate de tener un archivo para obtener los proveedores
+            .then(response => response.json())
+            .then(data => {
+                providers = data; // Asignar los datos a la variable providers
+                updateProviderTable(); // Actualizar la tabla de proveedores
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Ocurrió un error al cargar los proveedores.');
+            });
+    }
+
+    loadProviders(); // Llama a la función para cargar los proveedores al inicio
+});
