@@ -1,0 +1,14 @@
+com\example\cafebar\repository\ProductoRepository.class
+com\example\cafebar\service\UsuarioService.class
+com\example\cafebar\controller\ProductoController.class
+com\example\cafebar\model\Proveedor.class
+com\example\cafebar\exception\GlobalExceptionHandler.class
+com\example\cafebar\service\ProveedorService.class
+com\example\cafebar\controller\ProveedorController.class
+com\example\cafebar\repository\ProveedorRepository.class
+com\example\cafebar\repository\UsuarioRepository.class
+com\example\cafebar\controller\UsuarioController.class
+com\example\cafebar\service\ProductoService.class
+com\example\cafebar\model\Producto.class
+com\example\cafebar\model\Usuario.class
+com\example\cafebar\CafeBarApplication.class

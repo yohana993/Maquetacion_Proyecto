@@ -9,13 +9,13 @@ import javax.persistence.Id;
 public class Proveedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String nombre;
-    private String contacto;
-    private String email;
-    private String direccion;
-    private String productos;
-    private String nit;
+    public Long id;
+    public String nombre;
+    public String contacto;
+    public String email;
+    public String direccion;
+    public String productos;
+    public String nit;
 
     // Getters y setters
 }

@@ -1,0 +1,14 @@
+C:\Users\lcforero\Videos\Maquetacion_Proyecto\src\main\java\com\example\cafebar\CafeBarApplication.java
+C:\Users\lcforero\Videos\Maquetacion_Proyecto\src\main\java\com\example\cafebar\controller\ProductoController.java
+C:\Users\lcforero\Videos\Maquetacion_Proyecto\src\main\java\com\example\cafebar\controller\ProveedorController.java
+C:\Users\lcforero\Videos\Maquetacion_Proyecto\src\main\java\com\example\cafebar\controller\UsuarioController.java
+C:\Users\lcforero\Videos\Maquetacion_Proyecto\src\main\java\com\example\cafebar\exception\GlobalExceptionHandler.java
+C:\Users\lcforero\Videos\Maquetacion_Proyecto\src\main\java\com\example\cafebar\model\Producto.java
+C:\Users\lcforero\Videos\Maquetacion_Proyecto\src\main\java\com\example\cafebar\model\Proveedor.java
+C:\Users\lcforero\Videos\Maquetacion_Proyecto\src\main\java\com\example\cafebar\model\Usuario.java
+C:\Users\lcforero\Videos\Maquetacion_Proyecto\src\main\java\com\example\cafebar\repository\ProductoRepository.java
+C:\Users\lcforero\Videos\Maquetacion_Proyecto\src\main\java\com\example\cafebar\repository\ProveedorRepository.java
+C:\Users\lcforero\Videos\Maquetacion_Proyecto\src\main\java\com\example\cafebar\repository\UsuarioRepository.java
+C:\Users\lcforero\Videos\Maquetacion_Proyecto\src\main\java\com\example\cafebar\service\ProductoService.java
+C:\Users\lcforero\Videos\Maquetacion_Proyecto\src\main\java\com\example\cafebar\service\ProveedorService.java
+C:\Users\lcforero\Videos\Maquetacion_Proyecto\src\main\java\com\example\cafebar\service\UsuarioService.java
