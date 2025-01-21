@@ -28,12 +28,28 @@
 <main class="container1">
     <h3 class="center-align1">Gestión de Proveedores</h3>
     <div class="contenedor2">
-        <a href="Proveedores_Anadir.html" class="button1" id="addButto">Añadir Proveedor</a>
-        <a href="Proveedores_Actualizar.html" class="button1" id="updateButto">Actualizar Proveedor</a>
-        <a href="Proveedores_Eliminar.html" class="button1" id="deleteButto">Eliminar Proveedor</a>
-    </div>
-    <div class="contenedor2">
         <a href="Menu.html" class="button1" id="addButton">Atras</a>
+        <a href="Proveedores_Anadir.html" class="button1" id="addButto">Añadir Proveedor</a>
+        <!-- <a href="Proveedores_Actualizar.html" class="button1" id="updateButto">Actualizar Proveedor</a>
+        <a href="Proveedores_Eliminar.html" class="button1" id="deleteButto">Eliminar Proveedor</a> -->
+    </div>
+    <div class="table-container1" id="providerTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Contacto</th>
+                    <th>Email</th>
+                    <th>Dirección</th>
+                    <th>Productos</th>
+                    <th>NIT</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="providerList">
+                <!-- Proveedores se cargarán aquí dinámicamente -->
+            </tbody>
+        </table>
     </div>
 </main>
 
