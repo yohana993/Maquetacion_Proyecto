@@ -8,10 +8,11 @@ function procesarCreacionUsuario(event) {
 
     const nombres = document.getElementById('nombres').value;
     const apellidos = document.getElementById('apellidos').value;
-    const id = document.getElementById('id').value;
+    const idRol = document.getElementById('role').value;
     const email = document.getElementById('email').value;
     const telefono = document.getElementById('telefono').value;
-    const role = document.getElementById('role').value;
+    const nombreUsuario = document.getElementById('nombreUsuario').value;
+    const contraseña = document.getElementById('contraseña').value;
 
     // Aquí puedes hacer una solicitud al servidor para crear el usuario
     fetch('/api/usuarios', {
@@ -22,10 +23,11 @@ function procesarCreacionUsuario(event) {
         body: JSON.stringify({
             nombres: nombres,
             apellidos: apellidos,
-            id: id,
+            idRol: idRol,
             email: email,
             telefono: telefono,
-            role: role
+            nombreUsuario: nombreUsuario,
+            contraseña: contraseña
         })
     })
     .then(response => {
